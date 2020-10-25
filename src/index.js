@@ -15,7 +15,7 @@ const io = require('socket.io')(server);
 
 
 //get port from env variable
-const port = process.env.PORT;
+const PORT = process.env.PORT;
 
 //create the path from index.js file
 const pathFolderPublic = path.join(__dirname, '../public');
@@ -77,6 +77,6 @@ io.on('connection', (socket) => {
     })
 })
 //start the server listening on port 3000
-server.listen(port, () => {
-    console.log('the server listen on port', port);
+server.listen(PORT, () => {
+    console.log('the server listen on port', PORT);
 })
