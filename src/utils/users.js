@@ -44,7 +44,6 @@ const getUsersInRoom = (room) => {
     const usrs = users.filter(user => {
         return user.room === room;
     })
-
     return usrs
 }
 
@@ -59,9 +58,3 @@ module.exports = {
     getUsersInRoom,
     getUser
 }
-
-addUser({
-    id:12,
-    userName:'yazan',
-    room:'hel     lo'
-})

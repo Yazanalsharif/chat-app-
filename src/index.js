@@ -29,14 +29,13 @@ io.on('connection', (socket) => {
 
 
     socket.on('join', ({username, room}, callback) => {
-        const  {error, user} = addUser({id:socket.id, userName:username, room});
-        socket.join(room);
+        const  {error, user} = addUser({id:socket.id, userName:username, room});       
         if(error) {
             return callback(error);
         }
+        socket.join(user.room);
         socket.emit('sendFromServer', sendMessage('Welcome mr ' + user.userName +' in our Chat'));
         socket.broadcast.to(user.room).emit('sendFromServer', sendMessage(user.userName + ' is Connecting now '));
-        console.log(user);
         io.to(user.room).emit('roomData', {
             room:user.room,
             users:getUsersInRoom(user.room)

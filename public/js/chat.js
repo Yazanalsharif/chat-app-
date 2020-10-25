@@ -47,7 +47,7 @@ $messageFormButton.addEventListener('click', (e) => {
     e.preventDefault();
     $messageFormButton.setAttribute('disabled', 'disabled');
     let info = $messageFormInput.value
-    info = info.trim();
+    info = info.split(' ').join('').toLowerCase;
 
     if(info === ''){
         $messageFormButton.removeAttribute('disabled');
@@ -101,6 +101,8 @@ socket.on('sendLocation', (location, usr) => {
     $messages.insertAdjacentHTML('beforeend', html);
     autoscroll();
 })
+
+
 const sideBarTemplate = document.querySelector('#sidebar-template').innerHTML;
 socket.on('roomData', ({room, users}) => {
     console.log(users, room);
