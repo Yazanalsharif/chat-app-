@@ -47,7 +47,6 @@ $messageFormButton.addEventListener('click', (e) => {
     e.preventDefault();
     $messageFormButton.setAttribute('disabled', 'disabled');
     let info = $messageFormInput.value
-    info = info.split(' ').join('').toLowerCase;
 
     if(info === ''){
         $messageFormButton.removeAttribute('disabled');
